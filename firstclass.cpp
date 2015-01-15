@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
-
+//these three are called function prototypes which call the information from the functions and the
+//end of the program, one that multiplies by itself, one that cubes the value, and one that doubles is
 int square( int n );
 void cube( int &n );
 void doubleIt(int *n);
