@@ -14,13 +14,11 @@ void triple1(int array1[], int size);
 void triple2(int &arr);
 void triple3(int *vect);
 
-
-
 int main() {
     srand(time(NULL));
     int size = 10;
-    array <int, 10> array2;
     int array1[size];
+    array <int, 10> array2;
     vector<int> array3;
     
     for(int i = 0; i < size; i++){
@@ -33,16 +31,16 @@ int main() {
     
     cout << "\n\nArray1:\t";
     for(int i = 0; i < size; i++){
-        cout << setw(3) << left << array1[i] << "  ";
+        cout << setw(4) << left << array1[i] << "  ";
     }
     cout << "\nArray2:\t"; 
     for(int i = 0; i < size; i++){
-        cout << setw(3) << left << array2[i] << "  "; 
+        cout << setw(4) << left << array2[i] << "  "; 
     }
     
     cout << "\nArray3:\t";
     for(int i = 0; i < array3.size(); i++){
-        cout << setw(3) << left << array3[i] << "  ";
+        cout << setw(4) << left << array3[i] << "  ";
     }
    
 //The following code displays the arrays after they have been doubled
@@ -51,22 +49,22 @@ int main() {
 
     cout << "\n\nArray1:\t";
     for(int i = 0; i < size; i++){
-        cout << setw(3) << left << double1(array1[i]) << "  ";
+        cout << setw(4) << left << double1(array1[i]) << "  ";
     }
    
     cout << "\nArray2:\t";
     for(int a : array2){
         double2(a);
-        cout << setw(3) << left << a << "  ";
+        cout << setw(4) << left << a << "  ";
     }
     
     cout << "\nArray3:\t";
     for(int v : array3){
         double3(&v);
-        cout << setw(3) << left << v << "  ";
+        cout << setw(4) << left << v << "  ";
     }
     
-//The following code displays the arrays after they have been doubled
+//The following code displays the arrays after they have been tripled
     cout << "\n\nArrays after passing them to a function"
          << " to triple each element in the arrays:";
 
@@ -75,25 +73,28 @@ int main() {
         triple1(array1, i);
     }
     for(int i = 0; i < size; i++){
-        cout << setw(3) << left << array1[i] << "  ";
+        cout << setw(4) << left << array1[i] << "  ";
     }    
     
     cout << "\nArray2:\t";
     for(int a : array2){
         triple2(a);
-        cout << setw(3) << left << a << "  ";
+        cout << setw(4) << left << a << "  ";
     }
     
     cout << "\nArray3:\t";
     for(int v : array3){
         triple3(&v);
-        cout << setw(3) << left << v << "  ";
+        cout << setw(4) << left << v << "  ";
     }
     
     cout << "\n\n";
-    system("pause");
-//      cout << "\n\nPress any key to continue...\n\n";
-//      cin.get();
+    
+// To display press any key to continue remove the bottom two lines (lines 96 and 97) and replace with system("pause");
+// the bottom two lines work in Max OS while system("pause"); does not, the reason system doesn't work
+// is because system is OS specific.
+    cout << "Press enter to continue...\n\n";
+    cin.get();
 }
 int double1(int arr){
     return arr * 2;
