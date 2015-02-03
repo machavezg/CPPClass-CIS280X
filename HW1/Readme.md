@@ -9,7 +9,8 @@ Write a C++ program that will create 3 collections (arrays). Each array will sto
 a c-style array	use the name array1  
 an array class object	use the name array2
 a vector class object	use the name array3
-Create 3 functions that will take a single integer and triple it. The doubled value will be stored in the array being processed. Use loops to call the functions to double the values in the array elements.
+
+<p>Create 3 functions that will take a single integer and triple it. The doubled value will be stored in the array being processed. Use loops to call the functions to double the values in the array elements.
 
 1.  The first  function will have a return type of int  and use call-by-value. 
 use for array1      function double1
@@ -17,11 +18,11 @@ use for array1      function double1
 use for array2      function double2
 3.  The third  function will have a return type of void and use call-by-reference using a pointer.
 use for array3      function double3
-Create 3 functions that will take an integer array and double every element in the array. Use loops in the functions that are called to triple the values in the array elements.
+
+<p>Create 3 functions that will take an integer array and double every element in the array. Use loops in the functions that are called to triple the values in the array elements.
 
 1.  The first  function will have a return type of void and use call-by-reference using a c-style array.         
-     Use [ ] in  the function header: void triple1( int array1[ ], int size )   
-
+     Use [ ] in  the function header: void triple1( int array1[ ], int size )  
 use for array1      function triple1
 2.  The second function will have a return type of void and use call-be-reference using a reference
 use for array2      function triple2
