@@ -6,4 +6,7 @@ using namespace std;
 
 int main()
 {
-  Employee
+  Employee employee1("Bob", "Lewis", 8000.00);
+  
+  employee1.displayEmployee();
+}
