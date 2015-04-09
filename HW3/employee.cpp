@@ -2,11 +2,11 @@
 
 #include <iostream>
 #include <stdexcept>
-#include "employee.h"
+#include "Employee.h"
 using namespace std;
 
 //Constructor
-employee::employee(const string &first, const string &last, double salary)
+Employee::Employee(const string &first, const string &last, double salary)
 {
   firstName = first;
   lastName = last;
@@ -14,31 +14,31 @@ employee::employee(const string &first, const string &last, double salary)
 }
 
 //Set first name
-void employee::setFirstName( const string &first)
+void Employee::setFirstName( const string &first)
 {
   firstName = first;
 }
 
 //Return first name
-string employee::getFirstName() const
+string Employee::getFirstName() const
 {
   return firstName;
 }
 
 //Set last name
-void employee::setLastName( const string &last)
+void Employee::setLastName( const string &last)
 {
   lastName = last;
 }
 
 //Return last name
-string employee::getLastName() const
+string Employee::getLastName() const
 {
   return lastName;
 }
 
 //Set monthly salary
-void employee::setMonthlySalary( double salary)
+void Employee::setMonthlySalary( double salary)
 {
   if( salary >= 0.0 ) //Validate that salary is positive
     monthlySalary = salary;
@@ -47,13 +47,13 @@ void employee::setMonthlySalary( double salary)
 }
 
 //Return monthly salary
-double employee::getMonthlySalary() const
+double Employee::getMonthlySalary() const
 {
   return monthlySalary;
 }
 
 //Print employee object
-void employee::displayEmployee() cosnt
+void Employee::displayEmployee() cosnt
 {
   cout << "First Name: " << firstName << "\nLast Name: " << lastName << "\nMonthly Salary: " << monthlySalary;
 }
