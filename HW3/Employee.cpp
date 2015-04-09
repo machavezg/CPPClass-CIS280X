@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <stdexcept>
+#include <iomanip>
 #include "Employee.h"
 using namespace std;
 
@@ -53,7 +54,8 @@ double Employee::getMonthlySalary() const
 }
 
 //Print employee object
-void Employee::displayEmployee() cosnt
+void Employee::displayEmployee() const
 {
+  cout << fixed << setprecision(2);
   cout << "First Name: " << firstName << "\nLast Name: " << lastName << "\nMonthly Salary: " << monthlySalary;
 }
