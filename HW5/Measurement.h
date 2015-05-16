@@ -21,6 +21,7 @@ public:
     void operator+(int d);
     void operator-(int d);
     void operator*(int d);
+    void operator=(const Measurement &d);
 
     bool operator>(const Measurement &d);
     bool operator<(const Measurement &d);
