@@ -49,11 +49,14 @@ int main() {
         cout << "Height 1 is Smaller or Equal to Height 2" << endl;
     else
         cout << "Height 1 is Larger Than Height 2" << endl;
+
+    h1 = h2;
+    cout << "\nHeight 1: " << h1 << " (=) Height 2: "  << h2 << endl;
     
     Measurement h3;
     cout << "\nEnter a height (feet,inches): ";
-    cin >> h3;
-    cout << "Using stream insertion >> & extraction <<: " << h3 << endl;
+    //cin >> h3;
+    //cout << "Using stream insertion >> & extraction <<: " << h3 << endl;
     
     return 0;
 }
