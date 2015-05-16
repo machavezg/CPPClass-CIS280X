@@ -1,39 +1,139 @@
-#ifndef DATE_H
-#define	DATE_H
-
 #include <iostream>
+#include <iomanip>
+#include "Measurement.h"
 using namespace std;
 
-class Measurement 
-{
-public:
-    Measurement(int f = 1, int i = 1);
-    ~Measurement();
-    void setMeasurement(int, int);
-    void setFeet(int f);
-    int getFeet() const;
-    void setInches(int i);
-    int getInches() const;
-    //Member Functions
-    bool operator==(const Measurement &d);
-    bool operator!=(const Measurement &d);
-    //Arithmetic overloading
-    void operator+(int d);
-    void operator-(int d);
-    void operator*(int d);
-    void operator=(const Measurement &d);
+Measurement::Measurement(int f, int i){
+    setMeasurement(f,i);
+}
 
-    bool operator>(const Measurement &d);
-    bool operator<(const Measurement &d);
-    bool operator>=(const Measurement &d);
-    bool operator<=(const Measurement &d);
-    //Non-Member Functions
-    friend ostream &operator<<( ostream & output, const Measurement &d);
-    friend istream &operator>>( istream & input, Measurement &d);
-private:
-    int feet, inches;
-    
-};
+void Measurement::setMeasurement(int f, int i) {
+    int h;
+    f = f * 12;
+    i = i;
+    h = f + i;
+    setFeet(h);
+    setInches(h);
+}
 
-#endif
-/* DATE_H */
+void Measurement::setFeet(int f){
+    feet = f / 12;
+}
+
+int Measurement::getFeet() const{
+    return feet;
+}
+
+void Measurement::setInches(int i){
+        inches = i % 12;
+}
+
+int Measurement::getInches() const{
+    return inches;
+}
+
+//Rational operator
+bool Measurement::operator ==(const Measurement& h){
+    return ((feet == h.feet) &&
+            (inches == h.inches));
+}
+
+bool Measurement::operator !=(const Measurement& h){
+    return ((feet != h.feet) ||
+            (inches != h.inches));
+}
+//Arithmetic overloaders
+void Measurement::operator+(int h){
+    inches += h;
+    if( ( inches ) >= 12){
+        feet += inches / 12;
+        inches = inches % 12;
+    }
+}
+
+void Measurement::operator-(int h){
+    if ( inches >= h){
+        inches -=h;
+    }
+    else{
+        feet -= h / 12; 
+        inches = ( inches + ( 12 * ( h / 12 ) ) - h);// in = 5 minus 23
+    }
+}
+
+void Measurement::operator*(int m){
+    if((inches *= m) >= 12){
+        feet += inches / 12;
+        inches = inches % 12;
+    }
+    else {
+        inches *= m;
+    }
+}
+
+void Measurement::operator=(const Measurement &d )
+{ 
+    feet = d.feet;
+    inches = d.inches;
+}
+
+//Relational operators
+bool Measurement::operator>(const Measurement &h){
+        if (feet > h.feet)
+            return true;
+        else if ((feet == h.feet) &&
+            (inches > h.inches))
+            return true;
+        else
+            return false;
+}
+
+bool Measurement::operator>=(const Measurement &h){
+        if (feet > h.feet)
+            return true;
+        else if ((feet == h.feet) &&
+            (inches > h.inches))
+            return true;
+        else if ((feet == h.feet) &&
+            (inches == h.inches))
+            return true;
+        else
+            return false;
+}
+
+bool Measurement::operator<(const Measurement &h){
+        if (feet < h.feet)
+            return true;
+        else if ((feet == h.feet) &&
+            (inches < h.inches))
+            return true;
+        else
+            return false;
+}
+
+bool Measurement::operator<=(const Measurement &h){
+        if (feet < h.feet)
+            return true;
+        else if ((feet == h.feet) &&
+            (inches < h.inches))
+            return true;
+        else if ((feet == h.feet) &&
+            (inches == h.inches))
+            return true;
+        else
+            return false;
+}
+
+ostream &operator<<(ostream & output, const Measurement &h){
+    return output << "[" << h.getFeet() << " feet, " << h.getInches() << " inches]";
+}
+
+istream &operator>>(istream & input, Measurement &h){
+    input >> setw(2) >> h.feet;
+    input.ignore();
+    input >> setw(2) >> h.inches;
+    return input; 
+}
+
+Measurement::~Measurement() {
+}
